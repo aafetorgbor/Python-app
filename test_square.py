@@ -1,36 +1,36 @@
-# Pytest
-import math
+# # Pytest
+# import math
 
-def test_sqrt():
-   num = 25
-   assert math.sqrt(num) == 5
+# def test_sqrt():
+#    num = 25
+#    assert math.sqrt(num) == 5
 
-def testsquare():
-   assert 7 * 7 == 49
+# def testsquare():
+#    assert 7 * 7 == 49
 
-def tesequality():
-   assert 14 == 14
+# def tesequality():
+#    assert 14 == 14
 
    
    
 #  # Unittest
-# import unittest
+import unittest
 
-# class TestStringMethods(unittest.TestCase):
+class TestStringMethods(unittest.TestCase):
 
-#     def test_upper(self):
-#         self.assertEqual('foo'.upper(), 'FOO')
+    def test_upper(self):
+        self.assertEqual('foo'.upper(), 'FOO')
 
-#     def test_isupper(self):
-#         self.assertTrue('FOO'.isupper())
-#         self.assertFalse('Foo'.isupper())
+    def test_isupper(self):
+        self.assertTrue('FOO'.isupper())
+        self.assertFalse('Foo'.isupper())
 
-#     def test_split(self):
-#         s = 'hello world'
-#         self.assertEqual(s.split(), ['hello', 'world'])
-#         # check that s.split fails when the separator is not a string
-#         with self.assertRaises(TypeError):
-#             s.split(2)
+    def test_split(self):
+        s = 'hello world'
+        self.assertEqual(s.split(), ['hello', 'world'])
+        # check that s.split fails when the separator is not a string
+        with self.assertRaises(TypeError):
+            s.split(2)
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
