@@ -9,7 +9,7 @@ def testsquare():
    assert 7 * 7 == 49
 
 def tesequality():
-   assert 10 == 10
+   assert 14 == 14
 
    
    
