@@ -9,8 +9,8 @@ pipeline {
             steps {
                
                echo 'Building...' 
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'pytest -v'
+                
             }
         }
         
