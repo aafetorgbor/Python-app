@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true}
     
 
     stages {
@@ -9,31 +9,12 @@ pipeline {
             steps {
                
                echo 'Building...' 
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
         
-         stage('TEST') {
-            steps {
-                
-                sh 'pytest -v'
-            }
-         }
          
-         stage('DEPLOY') {
-             steps {
-                 
-                 echo 'Deployihng'
-                 sh ('printenv')
-             }
-         }
-         
-        stage('slack notification sent'){
-           steps{
-               echo ' sending slack notification....'
-               echo 'slack notification sent'
-               
-           }
-         }
         
     }
     
