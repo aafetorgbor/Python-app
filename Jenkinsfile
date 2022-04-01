@@ -1,5 +1,5 @@
 pipeline {
-    agent {
+    agent{
         docker image {'qnib/pytest:latest'}
     }
     
@@ -10,11 +10,10 @@ pipeline {
          stage('BUILD') {
             steps {
                
-               echo 'Building...' 
-                
-                
+               echo 'Building...'      
             }
         }
+        
         
         stage('TEST'){
             steps{
@@ -22,9 +21,7 @@ pipeline {
                 sh 'pytest -v'
             }
         }
-        
-        
-         
+           
         
     }
     
