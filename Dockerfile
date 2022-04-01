@@ -1,3 +1,3 @@
-FROM node:16.13.1-alpine
+FROM qnib/pytest:latest
 
-RUN apk add -U subversion
+CMD ["pytest --version", "pytest"]
