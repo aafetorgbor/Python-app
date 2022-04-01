@@ -1,27 +1,37 @@
 pipeline {
     agent{
-        docker image {'qnib/pytest:latest'}
+        docker image{ 'qnib/pytest:latest'}
     }
-    
+    }
 
     stages {
         
-     
-         stage('BUILD') {
+        
+         stage('TEST') {
             steps {
+                sh '''#!/bin/bash
+                pytest -v
+                
+                '''
+            }
+        }
+        
+     
+        
+         stage('DEPLOY') {
+            steps {
+                echo 'Deploying...'
+            }
+         }
+        
+        
+        stage('slack notification sent'){
+           steps{
+               echo ' sending slack notification....'
+               echo 'slack notification sent'
                
-               echo 'Building...'      
-            }
-        }
-        
-        
-        stage('TEST'){
-            steps{
-            
-                sh 'pytest -v'
-            }
-        }
-           
+           }
+         }
         
     }
     
