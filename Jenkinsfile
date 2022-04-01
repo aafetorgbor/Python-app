@@ -4,7 +4,7 @@ pipeline {
 
     stages {
         
-         stage('CHECKOUT CODE') {
+     /*    stage('CHECKOUT CODE') {
             steps {
              
              checkout([$class: 'GitSCM', 
@@ -13,7 +13,7 @@ pipeline {
              userRemoteConfigs: [[url: 'https://github.com/aafetorgbor/Python-app.git']]])
             }
         }
-        
+      */  
          stage('BUILD') {
             steps {
                
