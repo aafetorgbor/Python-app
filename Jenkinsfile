@@ -4,16 +4,7 @@ pipeline {
 
     stages {
         
-     /*    stage('CHECKOUT CODE') {
-            steps {
-             
-             checkout([$class: 'GitSCM', 
-             branches: [[name: '*/main']],
-             extensions: [],
-             userRemoteConfigs: [[url: 'https://github.com/aafetorgbor/Python-app.git']]])
-            }
-        }
-      */  
+     
          stage('BUILD') {
             steps {
                
