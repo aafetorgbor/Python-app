@@ -1,7 +1,5 @@
 pipeline {
-    agent{
-        docker image{ 'qnib/pytest:latest'}
-    }
+    agent any
     
 
     stages {
