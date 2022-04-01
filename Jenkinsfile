@@ -23,6 +23,7 @@ pipeline {
              steps {
                  
                  echo 'Deployihng'
+                 sh 'printenv'
              }
          }
          
