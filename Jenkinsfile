@@ -37,9 +37,5 @@ pipeline {
         
     }
     
-    post('slack notificion sent'){
-        always{
-            cleanWs()
-            }
-        }
+    
 }
