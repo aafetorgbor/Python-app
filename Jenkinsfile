@@ -11,10 +11,8 @@ pipeline {
         
          stage('TEST') {
             steps {
-                sh '''#!/bin/bash
-                pytest -v
-                
-                '''
+               sh 'pytest -v'
+       
             }
         }
         
