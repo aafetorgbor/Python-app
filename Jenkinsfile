@@ -4,7 +4,7 @@ pipeline {
     stages {
         
         
-         stage('TEST') {
+         stage('API UNIT-TEST') {
             steps {
                sh 'pytest -v'
        
