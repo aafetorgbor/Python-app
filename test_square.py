@@ -1,4 +1,4 @@
-# Pytest
+# Pytest..
 import math
 
 def test_sqrt():
@@ -6,10 +6,11 @@ def test_sqrt():
    assert math.sqrt(num) == 5
 
 def testsquare():
-   assert 7 * 1 == 7
+   assert 7 *7 == 49
 
 def tesequality():
    assert 2 == 2
+
 
    
    
