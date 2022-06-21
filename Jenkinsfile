@@ -4,7 +4,7 @@ pipeline {
     stages {
         
         
-         stage('TEST') {
+         stage('BUILD') {
             steps {
                sh 'pytest -v'
        
