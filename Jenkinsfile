@@ -2,9 +2,8 @@ pipeline {
    agent any
     
     stages {
-        
-        
-         stage('API UNIT-TEST') {
+       
+         stage('BUILD') {
             steps {
                sh 'pytest -v'
        
