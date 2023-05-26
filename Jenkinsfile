@@ -22,14 +22,14 @@ pipeline {
         stage('slack notification sent'){
            steps{
                echo ' sending slack notification....'
-               echo 'slack notification sent'
+               echo 'Slack notification sent'
                
            }
          }
         
     }
     
-       post('slack notificion sent'){
+       post('Slack notificion sent'){
             always{
                cleanWs()
             }
