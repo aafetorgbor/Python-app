@@ -1,3 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('CHECKOUT') {
+            steps {
+                echo ' checking out'
+            }
+        }
+
+        stage(''SonarQube Analysis'') {
+            steps {
+                
+                withSonarQubeEnv('SonarScanner-5.0.1') {
+                //sh "${scannerHome}/bin/sonar-scanner"
+                sh 'pytest -v sonar-scanner'
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+/*
 node {
   stage('SCM') {
     checkout scm
@@ -9,3 +37,4 @@ node {
     }
   }
 }
+*/
