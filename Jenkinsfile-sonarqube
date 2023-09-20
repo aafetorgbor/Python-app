@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage(''SonarQube Analysis'') {
+        stage('SonarQube Analysis') {
             steps {
                 
                 withSonarQubeEnv('SonarScanner-5.0.1') {
