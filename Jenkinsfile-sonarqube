@@ -11,7 +11,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 
-                withSonarQubeEnv('SonarScanner-5.0.1') {
+                withSonarQubeEnv('sonarqube') {
                 //sh "${scannerHome}/bin/sonar-scanner"
                 sh 'pytest -v sonar-scanner'
                 }
