@@ -27,7 +27,7 @@ pipeline {
     }
     stage('for pull request') {
       when {
-        changeRequest()
+        branch 'PR-*'
       }
       steps {
         sh 'pytest -v'
