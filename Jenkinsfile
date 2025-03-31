@@ -4,6 +4,13 @@ pipeline {
     stages {
        
          stage('BUILD') {
+             when {
+                  allOf {
+                  expression { env.BRANCH_NAME == "origin/master" }
+                  expression { params.merged == true }
+                  expression { params.current_status == "closed" }
+                        }
+                 }
             steps {
                sh 'pytest -v'
        
