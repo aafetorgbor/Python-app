@@ -1,45 +1,37 @@
 pipeline {
-   agent any
-    
-    stages {
-       
-         stage('BUILD') {
-             when {
-                  allOf {
-                  expression { env.BRANCH_NAME == "origin/master" }
-                  expression { params.merged == true }
-                  expression { params.current_status == "closed" }
-                        }
-                 }
-            steps {
-               sh 'pytest -v'
-       
-            }
-        }
-        
-     
-        
-         stage('DEPLOY') {
-            steps {
-                echo 'Deploying...'
-            }
-         }
-        
-        
-        stage('slack notification sent'){
-           steps{
-               echo ' sending slack notification....'
-               echo 'Slack notification sent'
-               
-           }
-         }
-        
+  agent any
+  stages {
+    stage('for main branch') {
+      when {
+        branch 'main'
+      }
+      steps {
+        echo 'main branch'
+      }
     }
-    
-       post('Slack notificion sent'){
-            always{
-               cleanWs()
-            }
-        }
-    
+    stage('for qa branch') {
+      when {
+        branch 'qa'
+      }
+      steps {
+        echo 'qa branch'
+      }
+    }
+   stage('for dev branch') {
+      when {
+        branch 'dev'
+      }
+      steps {
+        echo 'dev branch'
+      }
+    }
+    stage('for pull request') {
+      when {
+        changeRequest()
+      }
+      steps {
+        sh 'pytest -v'
+      }
+    }
+  }
 }
