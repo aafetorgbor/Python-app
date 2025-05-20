@@ -6,7 +6,7 @@ def test_sqrt():
    assert math.sqrt(num) == 5
 
 def testsquare():
-   assert 8 * 1 == 8
+   assert 7 * 1 == 7
 
 def tesequality():
    assert 10 == 10
