@@ -6,6 +6,7 @@ pipeline {
          stage('BUILD') {
             steps {
                sh 'pytest -v'
+              sh ' echo ${GIT_BRANCH#origin/} '
        
             }
         }
