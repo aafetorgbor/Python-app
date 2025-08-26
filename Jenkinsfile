@@ -6,10 +6,10 @@ pipeline {
          stage('BUILD') {
             steps {
                sh 'pytest -v'
-               sh ' echo " Branch: $GIT_BRANCH"'
-                sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
+              # sh ' echo " Branch: $GIT_BRANCH"'
+               # sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
 
-                sh ' echo " CLEAN_BRANCH=${GIT_BRANCH#origin/}" '
+                sh ' echo "${GIT_BRANCH#origin/}" '
               
                
        
