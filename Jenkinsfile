@@ -21,12 +21,12 @@ pipeline {
                 sh '''#!/bin/bash
               set  -e
              
-             if [[ "${GIT_BRANCH#origin/}" == "main" ]]; then
-             NAMESPACE=n8n-qm-prod
+             if [[ "${GIT_BRANCH#origin/}" == "dev" ]]; then
+             NAMESPACE=n8n-dev
              echo "Deploying to $NAMESPACE"
 
              elif [[ "${GIT_BRANCH#origin/}" == "test" ]]; then
-             NAMESPACE=n8n-dev
+             NAMESPACE=n8n-test
              echo "Deploying to $NAMESPACE"
 
              else
