@@ -5,11 +5,12 @@ pipeline {
        
          stage('BUILD') {
             steps {
-               sh 'pytest -v'
-              sh ' echo ${GIT_BRANCH#origin/} '
-
-               sh ' echo ${GIT_BRANCH} '
-       
+               sh '''
+               pytest -v
+             # echo ${GIT_BRANCH#origin/} 
+             #echo ${GIT_BRANCH} 
+               
+              '''
             }
         }
         
@@ -17,9 +18,22 @@ pipeline {
         
          stage('DEPLOY') {
             steps {
-                echo 'Deploying...'
+                sh '''
 
-               echo ' "${GIT_BRANCH}" '
+             if [[ "${GIT_BRANCH#origin/}" == "main" ]]; then
+             NAMESPACE=n8n-qm-prod
+             echo 'Deploying to $NAMESPACE'
+
+             elif [[ "${GIT_BRANCH#origin/}" == "test" ]]; then
+             NAMESPACE=n8n-dev
+             echo 'Deploying to $NAMESPACE'
+
+             else
+              echo "Branch ${GIT_BRANCH#origin/} does not trigger a deployment
+
+            fi
+               
+              '''
             }
          }
         
