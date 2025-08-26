@@ -1,3 +1,4 @@
+/*
 pipeline {
    agent any
     
@@ -55,4 +56,40 @@ pipeline {
             }
         }
     
+}
+*/
+
+
+pipeline {
+    agent any
+
+    environment {
+        // This trims 'origin/' from 'origin/main', if needed
+        CLEAN_BRANCH = "${env.GIT_BRANCH}".replaceFirst(/^origin\//, '')
+    }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                script {
+                    echo "Branch: ${env.GIT_BRANCH}"
+                    echo "Clean Branch: ${env.CLEAN_BRANCH}"
+                }
+
+                sh '''
+                    if [[ "$CLEAN_BRANCH" == "main" ]]; then
+                        NAMESPACE=n8n-qm-prod
+                        echo "Deploying to $NAMESPACE"
+
+                    elif [[ "$CLEAN_BRANCH" == "test" ]]; then
+                        NAMESPACE=n8n-dev
+                        echo "Deploying to $NAMESPACE"
+
+                    else
+                        echo "Branch $CLEAN_BRANCH does not trigger a deployment"
+                    fi
+                '''
+            }
+        }
+    }
 }
