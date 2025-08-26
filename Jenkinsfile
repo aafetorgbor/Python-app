@@ -1,5 +1,11 @@
 pipeline {
    agent any
+
+   environment{
+      DEPLOYMENT_MAIN = "N8N"
+      DEPLOYMENT_WORKER = "N8N-WORKER"
+      CLUSTER = "XFLOW"
+   }
     
     stages {
        
@@ -24,10 +30,12 @@ pipeline {
              if [[ "${GIT_BRANCH#origin/}" == "dev" ]]; then
              NAMESPACE=n8n-dev
              echo "Deploying to $NAMESPACE"
+             echo "Deploying to $DEPLOYMENT_MAIN"
 
              elif [[ "${GIT_BRANCH#origin/}" == "test" ]]; then
              NAMESPACE=n8n-test
              echo "Deploying to $NAMESPACE"
+             echo "Deploying to $DEPLOYMENT_WORKER"
 
              else
               echo "Branch ${GIT_BRANCH#origin/} does not trigger a deployment"
