@@ -8,6 +8,10 @@ pipeline {
                sh 'pytest -v'
                sh ' echo " Branch: $GIT_BRANCH"'
                 sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
+
+                sh ' CLEAN_BRANCH=${GIT_BRANCH#origin/} '
+              sh' echo "Clean branch: $CLEAN_BRANCH" '
+               
        
             }
         }
