@@ -5,12 +5,13 @@ pipeline {
        
          stage('BUILD') {
             steps {
-               sh 'pytest -v'
-              # sh ' echo " Branch: $GIT_BRANCH"'
-               # sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
+               sh '''
+               pytest -v
+              # echo " Branch: $GIT_BRANCH"
+               # echo "Branch: $GIT_LOCAL_BRANCH"
 
-                sh ' echo "${GIT_BRANCH#origin/}" '
-              
+                 echo ${GIT_BRANCH#origin/}
+              '''
                
        
             }
