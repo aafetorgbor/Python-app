@@ -9,8 +9,8 @@ pipeline {
                sh ' echo " Branch: $GIT_BRANCH"'
                 sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
 
-                sh ' CLEAN_BRANCH=${GIT_BRANCH#origin/} '
-              sh' echo $CLEAN_BRANCH '
+                sh ' echo " CLEAN_BRANCH=${GIT_BRANCH#origin/}" '
+              
                
        
             }
