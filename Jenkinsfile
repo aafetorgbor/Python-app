@@ -1,4 +1,4 @@
-/*
+
 pipeline {
    agent any
     
@@ -19,14 +19,14 @@ pipeline {
         
          stage('DEPLOY') {
             steps {
-                sh '''
+                sh '''#!/bin/bash
               set  -e
              
-             if [[ "${GIT_BRANCH}" == "origin/main" ]]; then
+             if [[ "${GIT_BRANCH#origin/}" == "main" ]]; then
              NAMESPACE=n8n-qm-prod
              echo "Deploying to $NAMESPACE"
 
-             elif [[ "${GIT_BRANCH}" == "origin/test" ]]; then
+             elif [[ "${GIT_BRANCH#origin/}" == "test" ]]; then
              NAMESPACE=n8n-dev
              echo "Deploying to $NAMESPACE"
 
@@ -57,9 +57,9 @@ pipeline {
         }
     
 }
-*/
 
 
+/*
 pipeline {
     agent any
 
@@ -93,3 +93,4 @@ pipeline {
         }
     }
 }
+*/
