@@ -10,7 +10,7 @@ pipeline {
                 sh ' echo "Branch: $GIT_LOCAL_BRANCH"'
 
                 sh ' CLEAN_BRANCH=${GIT_BRANCH#origin/} '
-              sh' echo "Clean branch: $CLEAN_BRANCH" '
+              sh' echo $CLEAN_BRANCH '
                
        
             }
