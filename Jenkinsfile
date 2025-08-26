@@ -7,6 +7,8 @@ pipeline {
             steps {
                sh 'pytest -v'
               sh ' echo ${GIT_BRANCH#origin/} '
+
+               sh ' echo ${GIT_BRANCH} '
        
             }
         }
