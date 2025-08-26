@@ -76,7 +76,7 @@ pipeline {
                     echo "Clean Branch: ${env.CLEAN_BRANCH}"
                 }
 
-                sh '''
+                sh '''#!/bin/bash
                     if [[ "$CLEAN_BRANCH" == "main" ]]; then
                         NAMESPACE=n8n-qm-prod
                         echo "Deploying to $NAMESPACE"
